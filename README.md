@@ -15,11 +15,13 @@ Follow these steps to get the project up and running on your local machine:
 
 1. Clone this repository to your local machine using:
    git clone https://github.com/GustavoAlzuru/Puppy-Bowl-2.git
-2. Install the required dependencies:
+2. Navigate to directory:
+    cd Puppy-Bowl-2
+3. Install the required dependencies:
     npm install
-3. Start the development server:
+4. Start the development server:
     npm run dev
-4. Open your web browser
+5. Open your web browser
 
 ## Usage
 
