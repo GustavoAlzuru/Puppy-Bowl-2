@@ -1,0 +1,40 @@
+.card-puppies{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+.card-puppies:hover{
+    transform: scale(1.03);
+}
+.puppy-img{
+    width: 250px;
+    height: 200px;
+}
+.card-puppies img{
+    object-fit: cover;
+    object-position: center;
+    width: 250px;
+    height: 200px;
+}
+.puppies-info{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.puppy-name{
+    font-size: 28px;
+}
+.puppy-btn{
+    padding: 5px 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.puppy-btn:hover{
+    background-color: rgba(211, 138, 29, 0.815);
+    color: rgb(238, 238, 255);
+}
