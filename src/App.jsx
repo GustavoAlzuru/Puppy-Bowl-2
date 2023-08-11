@@ -3,48 +3,45 @@ import './App.css'
 import { getPuppies } from './api/index'
 import Puppies from './components/Puppies'
 import SearchBar from './components/SearchBar'
+import Form from './components/Form'
 function App() {
-  const [puppies, setPuppies] = useState([])
-  const [error, setError] = useState(false)
-  const [filteredPuppies, setFilteredPuppies] = useState(puppies)
+  const [filteredPuppies, setFilteredPuppies] = useState([])
+  const [error, setError] = useState('')
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await getPuppies()
+        const { data, error } = await getPuppies()
         if (!data) {
-          throw new Error('There is an error')
+          setError(error.message)
+          return
         }
-        setPuppies(data.players)
+        setError('')
         setFilteredPuppies(data.players)
       }
       catch (err) {
-        setError(true)
         console.log('error', err)
       }
     }
     getData()
   }, [])
-  // const filter = puppies.filter(puppy => puppy.includes())
+
   const getValue = (value) => {
-    const filter = puppies.filter(puppy => puppy.name.toLowerCase().includes(value.toLowerCase()))
+    const filter = filteredPuppies.filter(puppy => puppy.name.toLowerCase().includes(value.toLowerCase()))
     setFilteredPuppies(filter)
   }
   return (
-    <>
+    <div className='main-wrapper'>
       <h1 className='main-title'>Puppy Bowl</h1>
-      <SearchBar getValue={getValue}/>
-      {
-        error
-          ?
-          <p className='error-text'>Not puppies found</p>
-          :
-          <div className='cards'>
-            {filteredPuppies.map(puppy => (
-              <Puppies puppies={puppy} key={puppy.id} />
-            ))}
-          </div>
-      }
-    </>
+      <div className='input-data'> 
+        <SearchBar getValue={getValue}/>
+        <Form/>
+      </div>
+      {error 
+        ? <p>{error}</p> 
+        : <ul className='cards'>
+            <Puppies puppies={filteredPuppies}/>
+          </ul> }
+    </div>
   )
 }
 

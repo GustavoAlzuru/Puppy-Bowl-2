@@ -10,3 +10,13 @@ export async function getPuppies() {
         throw err
     }
 }
+export async function getPuppy(id){
+    try{
+        const getData = await fetch(`${api_puppies}/${id}`)
+        const result = await getData.json()
+        return result
+    }catch(err){
+        console.log('err', err.message)
+        throw err
+    }
+}

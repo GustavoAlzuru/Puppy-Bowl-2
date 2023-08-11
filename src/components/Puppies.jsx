@@ -1,17 +1,36 @@
 import React from 'react';
 import './Puppies.css'
-const Puppies = ({puppies}) => {
+import { Link } from 'react-router-dom';
+const ListOfPuppies = ({puppies}) => {
     return (
-        <div className='card-puppies'>
-            <section className='puppy-img'>
-                <img src={puppies.imageUrl} alt="photos of puppies" />
-            </section>
-            <section className='puppies-info'>
-                <h3 className='puppy-name'>{puppies.name}</h3>
-                <button className='puppy-btn'>Details</button>
-            </section>
-        </div>
+        <>
+            {puppies.map((puppies) => (
+                <li className='card-puppies' key={puppies.id}>
+                    <section className='puppy-img'>
+                        <img src={puppies.imageUrl} alt="photos of puppies" />
+                    </section>
+                    <section className='puppies-info'>
+                        <h3 className='puppy-name'>{puppies.name}</h3>
+                        <Link to={`detail/${puppies.id}`} ><button className='puppy-btn'>Detail</button></Link>
+                    </section>
+                </li>
+            ))}
+        </>
+    );
+}
+const NoPuppiesResult = () => {
+    return(
+        <p>No puppies found</p>
+    )
+}
+const Puppies = ({puppies}) => {
+    const hasPuppies = puppies?.length > 0
+    return (
+        hasPuppies
+        ? <ListOfPuppies puppies={puppies}/>
+        : <NoPuppiesResult/>
     );
 }
 
 export default Puppies;
+
