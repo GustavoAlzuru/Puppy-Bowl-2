@@ -13,12 +13,10 @@
 body{
   background-color: rgb(210, 210, 252);
   padding: 30px;
-}
-.main-wrapper{
-  height: 100%;
   width: 80%;
   margin: 0 auto;
 }
+
 .main-title{
   font-size: 38px;
 }

@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar'
 import Form from './components/Form'
 function App() {
   const [filteredPuppies, setFilteredPuppies] = useState([])
+  const [allPuppies, setAllPuppies] = useState([]);
   const [error, setError] = useState('')
   useEffect(() => {
     const getData = async () => {
@@ -17,6 +18,7 @@ function App() {
         }
         setError('')
         setFilteredPuppies(data.players)
+        setAllPuppies(data.players)
       }
       catch (err) {
         console.log('error', err)
@@ -26,7 +28,7 @@ function App() {
   }, [])
 
   const getValue = (value) => {
-    const filter = filteredPuppies.filter(puppy => puppy.name.toLowerCase().includes(value.toLowerCase()))
+    const filter = allPuppies.filter(puppy => puppy.name.toLowerCase().includes(value.toLowerCase()))
     setFilteredPuppies(filter)
   }
   return (
