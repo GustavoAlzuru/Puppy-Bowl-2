@@ -6,10 +6,14 @@ const Form = () => {
     const handleForm = () => {
         setOpen(!open)
     }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        handleForm()
+    }
     return (
         open ? 
         <div className='form'>
-            <form className='form-container'>
+            <form className='form-container' onSubmit={handleSubmit}>
                 <div className='close-icon' onClick={handleForm}>{closeIcon()}</div>
                 <h3>Create your Puppy</h3>
                 <div className='info-form'>
@@ -21,7 +25,7 @@ const Form = () => {
                             Breed <input type="text" />
                         </label>
                     </div>
-                    <button>Submit</button>
+                    <button type='submit'>Submit</button>
                 </div>
             </form>
         </div>

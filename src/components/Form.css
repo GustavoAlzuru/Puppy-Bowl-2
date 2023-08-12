@@ -2,7 +2,7 @@
     cursor: pointer;
 }
 .form{
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0.479);
     top: 0;
     left: 0;
