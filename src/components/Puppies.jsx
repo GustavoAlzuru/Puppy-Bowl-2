@@ -1,7 +1,7 @@
 import React from 'react';
 import './Puppies.css'
 import { Link } from 'react-router-dom';
-const ListOfPuppies = ({puppies}) => {
+const ListOfPuppies = ({ puppies }) => {
     return (
         <>
             {puppies.map((puppies) => (
@@ -19,16 +19,16 @@ const ListOfPuppies = ({puppies}) => {
     );
 }
 const NoPuppiesResult = () => {
-    return(
+    return (
         <p>No puppies found</p>
     )
 }
-const Puppies = ({puppies}) => {
+const Puppies = ({ puppies }) => {
     const hasPuppies = puppies?.length > 0
     return (
         hasPuppies
-        ? <ListOfPuppies puppies={puppies}/>
-        : <NoPuppiesResult/>
+            ? <ListOfPuppies puppies={puppies} />
+            : <NoPuppiesResult />
     );
 }
 

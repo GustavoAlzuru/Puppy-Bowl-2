@@ -34,15 +34,15 @@ function App() {
   return (
     <div className='main-wrapper'>
       <h1 className='main-title'>Puppy Bowl</h1>
-      <div className='input-data'> 
-        <SearchBar getValue={getValue}/>
-        <Form/>
+      <div className='input-data'>
+        <SearchBar getValue={getValue} />
+        <Form />
       </div>
-      {error 
-        ? <p>{error}</p> 
+      {error
+        ? <p>{error}</p>
         : <ul className='cards'>
-            <Puppies puppies={filteredPuppies}/>
-          </ul> }
+          <Puppies puppies={filteredPuppies} />
+        </ul>}
     </div>
   )
 }

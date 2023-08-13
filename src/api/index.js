@@ -20,3 +20,19 @@ export async function getPuppy(id){
         throw err
     }
 }
+export async function sendPuppy(puppy){
+    try{
+        const sendData = await fetch(api_puppies, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(puppy)
+        })
+        const result = await sendData.json()
+        console.log(result)
+        return result
+    }catch(err){
+        console.error(err)
+    }
+}

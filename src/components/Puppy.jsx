@@ -1,10 +1,10 @@
 import React from 'react';
 import './Puppy.css'
-const Puppy = ({puppy}) => {
+const Puppy = ({ puppy }) => {
     return (
         <div className='puppy-wrapper'>
             <div className='pup-img'>
-                <img src={puppy.imageUrl} alt={`photograph of puppy ${puppy.name}`}/>
+                <img src={puppy.imageUrl} alt={`photograph of puppy ${puppy.name}`} />
             </div>
             <div className='puppy-card'>
                 <header className='pup-name'>
@@ -15,8 +15,8 @@ const Puppy = ({puppy}) => {
                 <section className='sec-team'>
                     <h3>Team</h3>
                     <div className='info-team'>
-                        <span>Name: {puppy?.team?.name}</span>
-                        <span>Score: {puppy?.team?.score}</span>
+                        <span>Name: {puppy?.team?.name || 'No team'}</span>
+                        <span>Score: {puppy?.team?.score || '0'}</span>
                     </div>
                 </section>
             </div>
