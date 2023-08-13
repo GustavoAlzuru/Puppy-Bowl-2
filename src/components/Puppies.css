@@ -10,18 +10,19 @@
     transform: scale(1.03);
 }
 .puppy-img{
-    width: 250px;
+    width: 280px;
     height: 200px;
 }
 .card-puppies img{
     object-fit: cover;
     object-position: center;
-    width: 250px;
+    width: 280px;
     height: 200px;
 }
 .puppies-info{
     padding: 10px;
     display: flex;
+    gap: 10px;
     justify-content: space-between;
 }
 .puppy-name{

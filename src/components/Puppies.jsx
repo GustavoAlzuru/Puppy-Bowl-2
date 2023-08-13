@@ -1,6 +1,7 @@
 import React from 'react';
 import './Puppies.css'
 import { Link } from 'react-router-dom';
+import Delete from './Delete';
 const ListOfPuppies = ({ puppies }) => {
     return (
         <>
@@ -11,7 +12,10 @@ const ListOfPuppies = ({ puppies }) => {
                     </section>
                     <section className='puppies-info'>
                         <h3 className='puppy-name'>{puppies.name}</h3>
-                        <Link to={`detail/${puppies.id}`} ><button className='puppy-btn'>Detail</button></Link>
+                        <Link to={`detail/${puppies.id}`}>
+                            <button className='puppy-btn'>Detail</button>
+                        </Link>
+                        <Delete pupId={puppies.id}/>
                     </section>
                 </li>
             ))}

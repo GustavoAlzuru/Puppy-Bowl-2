@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addIcon, closeIcon } from '../assets/Icons';
 import './Form.css'
 import { sendPuppy } from '../api';
-const Form = () => {
+const Form = ({newPuppies}) => {
     const [open, setOpen] = useState(false)
     const [formData, setFormData] = useState({})
     const handleForm = () => {
@@ -11,7 +11,7 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const data = await sendPuppy(formData)
-        console.log(data)
+        newPuppies(data?.newPlayer)
         handleForm()
     }
     const handleChange = (e) => {

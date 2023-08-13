@@ -36,3 +36,15 @@ export async function sendPuppy(puppy){
         console.error(err)
     }
 }
+export async function deletePuppy(id){
+    try{
+        const deletePup = await fetch(`${api_puppies}/${id}`, {
+            method: 'DELETE',
+        })
+        const result = await deletePup.json()
+        console.log(result)
+        return result
+    }catch(e){
+        console.error(err)
+    }
+}

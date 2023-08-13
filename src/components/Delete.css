@@ -1,0 +1,8 @@
+.delete-btn{
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: red;
+    padding: 5px 10px;
+    cursor: pointer;
+}
