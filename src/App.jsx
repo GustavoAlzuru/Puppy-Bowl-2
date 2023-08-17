@@ -37,12 +37,12 @@ function App() {
       <h1 className='main-title'>Puppy Bowl</h1>
       <div className='input-data'>
         <SearchBar getValue={getValue} />
-        <Form setNewPuppy={setNewPuppy} setFilteredPuppies={setFilteredPuppies} newPuppy={newPuppy}/>
+        <Form setNewPuppy={setNewPuppy} setFilteredPuppies={setFilteredPuppies} newPuppy={newPuppy} setAllPuppies={setAllPuppies}/>
       </div>
       {error
         ? <p>{error}</p>
         : <ul className='cards'>
-          <Puppies allPuppies={filteredPuppies} newPuppy={newPuppy} setFilteredPuppies={setFilteredPuppies} setNewPuppy={setNewPuppy}/>
+          <Puppies allPuppies={filteredPuppies} newPuppy={newPuppy} setFilteredPuppies={setFilteredPuppies} setNewPuppy={setNewPuppy} setAllPuppies={setAllPuppies} listOfPuppies={allPuppies}/>
         </ul>}
     </div>
   )

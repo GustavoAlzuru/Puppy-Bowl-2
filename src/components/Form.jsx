@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addIcon, closeIcon } from '../assets/Icons';
 import './Form.css'
 import { sendPuppy } from '../api';
-const Form = ({setNewPuppy, setFilteredPuppies, newPuppy}) => {
+const Form = ({setNewPuppy, setFilteredPuppies, newPuppy, setAllPuppies}) => {
     const [open, setOpen] = useState(false)
     const [formData, setFormData] = useState({})
     const handleForm = () => {
@@ -14,6 +14,8 @@ const Form = ({setNewPuppy, setFilteredPuppies, newPuppy}) => {
         if(data){
             setNewPuppy(prevPuppy => [...prevPuppy, data.newPlayer])
             setFilteredPuppies(prevPuppy => [...prevPuppy, data.newPlayer
+            ])
+            setAllPuppies(prevPuppy => [...prevPuppy, data.newPlayer
             ])
             const updatedPuppies = [...newPuppy, data.newPlayer]
             localStorage.setItem('newPuppies', JSON.stringify(updatedPuppies))
