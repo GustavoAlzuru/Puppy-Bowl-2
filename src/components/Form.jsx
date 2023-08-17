@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addIcon, closeIcon } from '../assets/Icons';
 import './Form.css'
 import { sendPuppy } from '../api';
-const Form = ({newPuppies}) => {
+const Form = ({setNewPuppy, setFilteredPuppies, newPuppy}) => {
     const [open, setOpen] = useState(false)
     const [formData, setFormData] = useState({})
     const handleForm = () => {
@@ -10,8 +10,14 @@ const Form = ({newPuppies}) => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const data = await sendPuppy(formData)
-        newPuppies(data?.newPlayer)
+        const {data} = await sendPuppy(formData)
+        if(data){
+            setNewPuppy(prevPuppy => [...prevPuppy, data.newPlayer])
+            setFilteredPuppies(prevPuppy => [...prevPuppy, data.newPlayer
+            ])
+            const updatedPuppies = [...newPuppy, data.newPlayer]
+            localStorage.setItem('newPuppies', JSON.stringify(updatedPuppies))
+        }
         handleForm()
     }
     const handleChange = (e) => {

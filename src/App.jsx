@@ -7,7 +7,7 @@ import Form from './components/Form'
 function App() {
   const [filteredPuppies, setFilteredPuppies] = useState([])
   const [allPuppies, setAllPuppies] = useState([]);
-  const [newPuppy, setNewPuppy] = useState([])
+  const [newPuppy, setNewPuppy] = useState(JSON.parse(localStorage.getItem('newPuppies')) || [])
   const [error, setError] = useState('')
   useEffect(() => {
     const getData = async () => {
@@ -27,9 +27,7 @@ function App() {
     }
     getData()
   }, [])
-  const newPuppies = (data) => {
-    setNewPuppy(prevPuppy => [...prevPuppy, data])
-  }
+
   const getValue = (value) => {
     const filter = allPuppies.filter(puppy => puppy.name.toLowerCase().includes(value.toLowerCase()))
     setFilteredPuppies(filter)
@@ -39,12 +37,12 @@ function App() {
       <h1 className='main-title'>Puppy Bowl</h1>
       <div className='input-data'>
         <SearchBar getValue={getValue} />
-        <Form newPuppies={newPuppies}/>
+        <Form setNewPuppy={setNewPuppy} setFilteredPuppies={setFilteredPuppies} newPuppy={newPuppy}/>
       </div>
       {error
         ? <p>{error}</p>
         : <ul className='cards'>
-          <Puppies puppies={filteredPuppies} />
+          <Puppies allPuppies={filteredPuppies} newPuppy={newPuppy} setFilteredPuppies={setFilteredPuppies} setNewPuppy={setNewPuppy}/>
         </ul>}
     </div>
   )

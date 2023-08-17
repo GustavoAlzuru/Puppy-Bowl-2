@@ -30,7 +30,6 @@ export async function sendPuppy(puppy){
             body: JSON.stringify(puppy)
         })
         const result = await sendData.json()
-        console.log(result)
         return result
     }catch(err){
         console.error(err)
@@ -42,7 +41,6 @@ export async function deletePuppy(id){
             method: 'DELETE',
         })
         const result = await deletePup.json()
-        console.log(result)
         return result
     }catch(e){
         console.error(err)
